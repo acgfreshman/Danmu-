@@ -56,7 +56,7 @@ function generateDanmu(){
 	//set animation
 	var interval = setInterval(frame,5);
 	function frame(){
-	    if (pos < 0) {
+	    if (pos < -1 * container.offsetWidth) {
 		//if go out of boundary danmu will disappear
 		container.innerHTML = "";
 		clearInterval(interval);

@@ -13,11 +13,9 @@
 </head>
 <body>
     <div class="page" id="page">
-        <h2 class="header" id="head">Danmu Generator</h2>
-        <div class="dm">
-        <div class="dm_screen" id="dm_screen">
-         
-        </div>
+        <h3 class="header" id="head">Danmu Generator</h3>
+        <div class="dm container">
+        <div class="dm_screen" id="dm_screen"></div>
         
         <div class="form-group control">
             <div class="input">
@@ -27,12 +25,30 @@
             <div class="button text-center">
                 <button type="button" onclick="generateDanmu()" class="btn btn-primary shoot">Shoot</button>
                 <button type="button" onclick="clearDanmu()" class="btn btn-warning clear">Clear</button>
-            </div>    
-        </div>
-    
-    
+		        <button type="button" class="btn btn-info option" data-toggle="modal" data-target="#myOption" id="option">Options</button>	
+            </div>
         </div> 
+        </div>
     </div>
+    <!-- MODAL -->
+    <div class="modal fade" id="myOption" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+              <button class="close" data-dismiss="modal"><span>&times;</span></button>
+		      <h3 class="modal-title">Danmu Options</h3>
+          </div>
+          <div class="modal-body">
+              <p>some ongoing options......</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary save" data-dismiss="modal" onclick="#" id="modalSave">Save</button>  
+            <button type="button" class="btn btn-default closes" data-dismiss="modal">Close</button>
+          </div>    
+	    </div>
+	  </div>
+    </div>
+    
 </body>
 <script src="danmu.js"></script>
 </html>

@@ -1,6 +1,6 @@
 .header {
-    font-size: 50px;
-    padding: 10px;
+    font-size:40px;
+    padding: 5px;
     text-align:center;
 }
 
@@ -9,8 +9,8 @@
 }
 
 .dm .dm_screen{
-    position:relative;
-    height: 650px;
+    position:relative; 
+    height: 600px;
     background-color:floralwhite;
     border-radius: 10px;
     z-index: -1;
@@ -22,8 +22,27 @@
     margin-bottom: 10px;
 }
 
-.shoot, .clear {
+.shoot, .clear{
     font-size: 20px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+/*Mode Style */
+.modal-dialog{
+    width: 650px;
+    margin: 250px auto;
+    
+}
+
+
+.option {
+    font-size:20px;
+    padding-left:13px;
+    padding-right:13px;
+}
+
+.save {
+    padding-left: 14px;
+    padding-right: 14px;
 }
