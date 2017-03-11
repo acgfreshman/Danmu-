@@ -45,6 +45,11 @@ function generateDanmu(){
 	container.style.position = "absolute";
 	container.style.left = textLeft;
 	container.style.top = textTop;
+	//below line solved the wrapping of div element when its content goes out boundary
+	container.style.whiteSpace = "nowrap"; //ignore whitespace in content and make it an line
+	container.style.textOverflow = "ellipsis";//clip text goes out of boundary of div
+	container.style.overflow = "hidden";//hidden overflow part in the div
+	danmu.style.overflow = "hidden";//hidden overflow part in the danmu canvas
 	danmu.appendChild(container);
 	//get the style.left of the danmu 
 	var pos = parseInt(textLeft);
@@ -57,7 +62,7 @@ function generateDanmu(){
 		clearInterval(interval);
 	    } else {
 		pos--; 
-		container.style.left = pos + 'px'; 
+		container.style.left = pos + 'px';  
 	    }
 	}
     }
