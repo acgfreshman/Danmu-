@@ -71,13 +71,6 @@
     padding-right: 20px;
 }
 
-.dropdown-toggle {
-    width: 160px;
-}
-
-.toggle {
-    padding-right: 65px;
-}
 
 .dropdown:hover .dropdown-menu {
     display: block;

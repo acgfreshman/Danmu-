@@ -50,7 +50,7 @@
                         <input type="range" class="fontSize form-control" id="fontSize" value="30" min="10" max="80">
                     </div>
                     <div class="col-xs-1">
-                        <div class="fontSizeValue form-control">30</div>
+                        <div class="fontSizeValue form-control" id="sizePanel">30</div>
                     </div>
                     <div class="col-xs-5 col-xs-offset-1">
                         <input type="color" class="fontColor form-control"  id="fontColor">
@@ -67,7 +67,7 @@
                         <input type="range" class="fontOpacity form-control" id="fontOpacity" value="100" min="0" max="100">
                     </div>
                     <div class="col-xs-1">
-                        <div class="fontOpacityValue form-control">100%</div>
+                        <div class="fontOpacityValue form-control" id="opacityPanel">100%</div>
                     </div>
                     <div class="col-xs-4 col-xs-offset-1">
                         <input type="range" class="fontSpeed form-control" id="fontSpeed" value="1" min="0" max="100">
@@ -84,11 +84,19 @@
                             <label class="col-xs-6" for="fontStyle">Font Style</label>
                         </div>
                         <div class="container-fluid">
-                            <div class="row btn-group">
-                                <button type="radio" class="btn btn-default fontStyleDefault" name="options" id="default" checked="checked" value="default" >Default</button>
-                                <button type="radio" class="btn btn-default fontStyleItalic" name="options" id="italic" value="italic">Italic</button>
-                                <button type="radio" class="btn btn-default fontStyleBold" name="options" id="bold" value="bold">Bold</button>
-                            </div>
+                            
+                               <div class="row btn-group" data-toggle="buttons">
+                                 <label class="btn btn-default active">
+                                     <input type="radio" name="style" id="default" autocomplete="off" onclick="unchecked()" checked> Default 
+                                 </label>
+                                 <label class="btn btn-default fontStyleItalic">
+                                     <input type="radio" name="style" id="italic" autocomplete="off" onclick="unchecked()"> Italic 
+                                 </label>
+                                 <label class="btn btn-default fontStyleBold">
+                                     <input type="radio" name="style" id="bold" autocomplete="off" onclick="unchecked()"> Bold 
+                                 </label>   
+                               </div> 
+                            
                         </div>
                         <br/>
                         <br/>
@@ -96,17 +104,12 @@
                             <label class="col-xs-6" for="fontFamily">Font Family</label>
                         </div>
                         <div class="container-fluid">
-                            <div class="row">
-                                <div class="btn-group dropdown">
-                                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="toggle">Default</span>
-                                    <span class="caret"></span>
-                                    </a>        
-                                    <ul class="dropdown-menu">
-                                       <li><a href="#">some font</a></li>
-                                       <li><a href="#">some font</a></li>
-                                       <li><a href="#">some font</a></li>    
-                                    </ul>
-                                </div>
+                            <div class="row"> 
+                                <select class="form-control" id="fontFamily">
+                                    <option value="a" selected="selected">Mustard</option>
+                                    <option value="b">Ketchup</option>
+                                    <option value="c">Relish</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -115,7 +118,7 @@
                             <label class="col-xs-6" for="fontStyle">Font Preview</label>
                         </div>
                         <div class="well preview" id="preview">
-                            ABC一二三あいう
+                            ABC123!@#
                         </div>
                     </div>
                 </div>
@@ -123,7 +126,7 @@
           <br/>    
           <div class="modal-footer">
             <button type="button" class="btn btn-primary save" data-dismiss="modal" onclick="#" id="modalSave">Save</button>  
-            <button type="button" class="btn btn-default closes" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default closes" data-dismiss="modal" onclick="#">Close</button>
           </div>    
 	    </div>
 	  </div>

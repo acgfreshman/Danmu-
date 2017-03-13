@@ -1,3 +1,13 @@
+//danmu bullet object
+function bullet(size,color,opacity,speed,style,font){
+    this.size = size;
+    this.color = color;
+    this.opacity = opacity;
+    this.speed = speed;
+    this.style = style;
+    this.font = font;
+}
+
 //random color generator for danmu color
 function randomNum(val){
     return Math.floor(Math.random() * val + 1);
@@ -19,6 +29,62 @@ function clearDanmu(){
     }
 }
 
+//press enter can submit danmu rather than click the button
+document.onkeydown = function() {
+    if(window.event.keyCode == "13") {
+	generateDanmu();
+    }
+}
+
+//trivial functions that get the properties of danmu bullet
+function getSize(){
+    var speed = document.getElementById("fontSize").value;
+    return speed;
+}
+
+function getColor(){
+    var color = document.getElementById("fontColor").value;
+    return color;
+}
+
+function getOpacity(){
+    var opacity = document.getElementById("fontOpacity").value;
+    return opacity;
+}
+
+function getSpeed(){
+    var speed = document.getElementById("fontSpeed").value;
+    return speed;
+}
+
+function getStyle(){
+    var style = "";
+    if(document.getElementById("default").checked)
+        style = "default";
+    else if (document.getElementById("bold").checked)
+        style = "bold";
+    else
+        style = "italic";
+    return style;
+}
+
+function getFont(){
+    var font = document.getElementById("fontFamily").value;
+    return font;
+}
+
+
+//create bullet object when user clicks save
+function createBullet(){
+    var size = getSize();
+    var color = getColor();
+    var opacity = getOpacity();
+    var speed = getSpeed();
+    var style = getStyle();
+    var font = getFont();
+    var myBullet = new bullet(size,color,opacity,speed,style,font);
+    return myBullet;
+}
 
 //submit button create a new danmu and append it to the screen
 function generateDanmu(){
@@ -70,16 +136,4 @@ function generateDanmu(){
     //clear the input area
     document.getElementById("input").value = "";
 }
-
-
-//press enter can submit danmu rather than click the button
-document.onkeydown = function() {
-    if(window.event.keyCode == "13") {
-	generateDanmu();
-    }
-}
-
-
-
-
 
