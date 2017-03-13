@@ -47,13 +47,13 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
-                        <input type="range" class="fontSize form-control" id="fontSize" value="30" min="10" max="80">
+                        <input type="range" class="fontSize form-control" id="fontSize" value="30" min="10" max="70" onchange="updateSize()">
                     </div>
                     <div class="col-xs-1">
                         <div class="fontSizeValue form-control" id="sizePanel">30</div>
                     </div>
                     <div class="col-xs-5 col-xs-offset-1">
-                        <input type="color" class="fontColor form-control"  id="fontColor">
+                        <input type="color" class="fontColor form-control"  id="fontColor" onchange="updateColor()">
                     </div>
                 </div>
                 <br/>
@@ -64,16 +64,16 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
-                        <input type="range" class="fontOpacity form-control" id="fontOpacity" value="100" min="0" max="100">
+                        <input type="range" class="fontOpacity form-control" id="fontOpacity" value="100" min="0" max="100" onchange="updateOpacity()">
                     </div>
                     <div class="col-xs-1">
                         <div class="fontOpacityValue form-control" id="opacityPanel">100%</div>
                     </div>
                     <div class="col-xs-4 col-xs-offset-1">
-                        <input type="range" class="fontSpeed form-control" id="fontSpeed" value="1" min="0" max="100">
+                        <input type="range" class="fontSpeed form-control" id="fontSpeed" value="1" min="0" max="100" onchange="updateSpeed()">
                     </div>
                     <div class="col-xs-1">
-                        <div class="fontSpeedValue form-control">100</div>
+                        <div class="fontSpeedValue form-control" id="speedPanel">1</div>
                     </div>
                 </div>
                 <br/>
@@ -84,16 +84,15 @@
                             <label class="col-xs-6" for="fontStyle">Font Style</label>
                         </div>
                         <div class="container-fluid">
-                            
                                <div class="row btn-group" data-toggle="buttons">
                                  <label class="btn btn-default active">
-                                     <input type="radio" name="style" id="default" autocomplete="off" onclick="unchecked()" checked> Default 
+                                     <input type="radio" name="style" id="default" autocomplete="off" onchange="updateStyle()" checked> Default 
                                  </label>
                                  <label class="btn btn-default fontStyleItalic">
-                                     <input type="radio" name="style" id="italic" autocomplete="off" onclick="unchecked()"> Italic 
+                                     <input type="radio" name="style" id="italic" autocomplete="off" onchange="updateStyle()"> Italic 
                                  </label>
                                  <label class="btn btn-default fontStyleBold">
-                                     <input type="radio" name="style" id="bold" autocomplete="off" onclick="unchecked()"> Bold 
+                                     <input type="radio" name="style" id="bold" autocomplete="off" onchange="updateStyle()"> Bold 
                                  </label>   
                                </div> 
                             
@@ -105,7 +104,7 @@
                         </div>
                         <div class="container-fluid">
                             <div class="row"> 
-                                <select class="form-control" id="fontFamily">
+                                <select class="form-control" id="fontFamily" onchange="updateFontFamily()">
                                     <option value="a" selected="selected">Mustard</option>
                                     <option value="b">Ketchup</option>
                                     <option value="c">Relish</option>
@@ -118,7 +117,7 @@
                             <label class="col-xs-6" for="fontStyle">Font Preview</label>
                         </div>
                         <div class="well preview" id="preview">
-                            ABC123!@#
+                            <div id="previewPanel">ABC123!@#</div>
                         </div>
                     </div>
                 </div>

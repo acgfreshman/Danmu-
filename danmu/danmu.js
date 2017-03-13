@@ -49,7 +49,7 @@ function getColor(){
 
 function getOpacity(){
     var opacity = document.getElementById("fontOpacity").value;
-    return opacity;
+    return opacity/100;
 }
 
 function getSpeed(){
@@ -72,18 +72,63 @@ function getFont(){
     var font = document.getElementById("fontFamily").value;
     return font;
 }
+//trivial functions that update option well according to user input
+function updateSize(){
+    document.getElementById("sizePanel").innerHTML = document.getElementById("fontSize").value;
+    myBullet.size = getSize();
+    updatePreview(myBullet);
+}
+
+function updateColor(){
+    myBullet.color = getColor();
+    updatePreview(myBullet);
+}
 
 
-//create bullet object when user clicks save
-function createBullet(){
-    var size = getSize();
-    var color = getColor();
-    var opacity = getOpacity();
-    var speed = getSpeed();
-    var style = getStyle();
-    var font = getFont();
-    var myBullet = new bullet(size,color,opacity,speed,style,font);
-    return myBullet;
+function updateOpacity(){
+    document.getElementById("opacityPanel").innerHTML = document.getElementById("fontOpacity").value + "%";
+    myBullet.opacity = getOpacity();
+    updatePreview(myBullet);
+}
+
+function updateSpeed(){
+    document.getElementById("speedPanel").innerHTML = document.getElementById("fontSpeed").value;
+    updatePreview(myBullet);
+}
+
+function updateStyle(){
+    updatePreview(myBullet);
+}
+
+function updateFontFamily(){
+    updatePreview(myBullet);
+}
+
+//update the preview panel if the option is updated
+function updatePreview(bullet){
+    var content = "123!@#";
+    generateCustom(content,bullet);
+}
+
+
+//create default bullet object
+var size = getSize();
+var color = getColor();
+var opacity = getOpacity();
+var speed = getSpeed();
+var style = getStyle();
+var font = getFont();
+var myBullet = new bullet(size,color,opacity,speed,style,font);
+
+
+
+//generate user customized bullet given the content and the bullet object
+function generateCustom(content,bullet){
+    var container = document.getElementById("previewPanel");
+    container.innerHTML = content;
+    container.style.fontSize = bullet.size + "px";
+    container.style.color = bullet.color;
+    container.style.opacity = bullet.opacity;
 }
 
 //submit button create a new danmu and append it to the screen
