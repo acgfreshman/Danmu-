@@ -31,10 +31,9 @@
 /*Mode Style */
 .modal-dialog{
     width: 650px;
-    margin: 250px auto;
+    margin: 150px auto;
     
 }
-
 
 .option {
     font-size:20px;
@@ -47,10 +46,39 @@
     padding-right: 14px;
 }
 
-
-
-.fontValue {
+.fontSizeValue {
     text-align: center;
-    width: 40px;
+    width: 50px;
 }
 
+.fontOpacityValue {
+    text-align: center;
+    width: 60px;
+}
+
+.fontSpeedValue {
+    text-align: center;
+    width: 60px;
+}
+
+.fontStyleItalic {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.fontStyleBold {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.dropdown-toggle {
+    width: 160px;
+}
+
+.toggle {
+    padding-right: 65px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

@@ -43,20 +43,82 @@
                 <br/>
                 <div class="row">
                     <label class="col-xs-6" for="fontSize">Font Size</label>
-                    <label class="col-xs-6" for="fontColor">Font Color <small class="colorTip"> &nbsp; random by default</small></label>
+                    <label class="col-xs-6" for="fontColor">Font Color <small class="colorTip"> &nbsp; &nbsp;&nbsp;(random by default)</small></label>
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
                         <input type="range" class="fontSize form-control" id="fontSize" value="30" min="10" max="80">
                     </div>
                     <div class="col-xs-1">
-                        <div class="fontValue form-control">30</div>
+                        <div class="fontSizeValue form-control">30</div>
                     </div>
                     <div class="col-xs-5 col-xs-offset-1">
-                        <input type="color" class="fontColor form-control" id="fontColor">
+                        <input type="color" class="fontColor form-control"  id="fontColor">
                     </div>
                 </div>
-                
+                <br/>
+                <br/>
+                <div class="row">
+                    <label class="col-xs-6" for="fontOpacity">Font Opacity</label>
+                    <label class="col-xs-6" for="fontSpeed">Font Speed</label>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <input type="range" class="fontOpacity form-control" id="fontOpacity" value="100" min="0" max="100">
+                    </div>
+                    <div class="col-xs-1">
+                        <div class="fontOpacityValue form-control">100%</div>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <input type="range" class="fontSpeed form-control" id="fontSpeed" value="1" min="0" max="100">
+                    </div>
+                    <div class="col-xs-1">
+                        <div class="fontSpeedValue form-control">100</div>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <label class="col-xs-6" for="fontStyle">Font Style</label>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row btn-group">
+                                <button type="radio" class="btn btn-default fontStyleDefault" name="options" id="default" checked="checked" value="default" >Default</button>
+                                <button type="radio" class="btn btn-default fontStyleItalic" name="options" id="italic" value="italic">Italic</button>
+                                <button type="radio" class="btn btn-default fontStyleBold" name="options" id="bold" value="bold">Bold</button>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <label class="col-xs-6" for="fontFamily">Font Family</label>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="btn-group dropdown">
+                                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="toggle">Default</span>
+                                    <span class="caret"></span>
+                                    </a>        
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">some font</a></li>
+                                       <li><a href="#">some font</a></li>
+                                       <li><a href="#">some font</a></li>    
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <label class="col-xs-6" for="fontStyle">Font Preview</label>
+                        </div>
+                        <div class="well preview" id="preview">
+                            ABC一二三あいう
+                        </div>
+                    </div>
+                </div>
           </div>
           <br/>    
           <div class="modal-footer">
