@@ -39,8 +39,26 @@
 		      <h3 class="modal-title">Danmu Options</h3>
           </div>
           <div class="modal-body">
-              <p>some ongoing options......</p>
+                <h4>Bullet Option</h4>
+                <br/>
+                <div class="row">
+                    <label class="col-xs-6" for="fontSize">Font Size</label>
+                    <label class="col-xs-6" for="fontColor">Font Color <small class="colorTip"> &nbsp; random by default</small></label>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <input type="range" class="fontSize form-control" id="fontSize" value="30" min="10" max="80">
+                    </div>
+                    <div class="col-xs-1">
+                        <div class="fontValue form-control">30</div>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-1">
+                        <input type="color" class="fontColor form-control" id="fontColor">
+                    </div>
+                </div>
+                
           </div>
+          <br/>    
           <div class="modal-footer">
             <button type="button" class="btn btn-primary save" data-dismiss="modal" onclick="#" id="modalSave">Save</button>  
             <button type="button" class="btn btn-default closes" data-dismiss="modal">Close</button>
