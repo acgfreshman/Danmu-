@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Link to danmu fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina|Roboto" rel="stylesheet">
     <!-- Link to personal style sheet -->  
     <link rel="stylesheet" href="danmu.css"> 
     <title>Danmu Generator</title>
@@ -47,7 +49,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
-                        <input type="range" class="fontSize form-control" id="fontSize" value="30" min="10" max="70" onchange="updateSize()">
+                        <input type="range" class="fontSize form-control" id="fontSize" value="30" min="10" max="64" onchange="updateSize()">
                     </div>
                     <div class="col-xs-1">
                         <div class="fontSizeValue form-control" id="sizePanel">30</div>
@@ -70,7 +72,7 @@
                         <div class="fontOpacityValue form-control" id="opacityPanel">100%</div>
                     </div>
                     <div class="col-xs-4 col-xs-offset-1">
-                        <input type="range" class="fontSpeed form-control" id="fontSpeed" value="1" min="0" max="100" onchange="updateSpeed()">
+                        <input type="range" class="fontSpeed form-control" id="fontSpeed" value="1" min="1" max="10" step="1" onchange="updateSpeed()">
                     </div>
                     <div class="col-xs-1">
                         <div class="fontSpeedValue form-control" id="speedPanel">1</div>
@@ -85,13 +87,13 @@
                         </div>
                         <div class="container-fluid">
                                <div class="row btn-group" data-toggle="buttons">
-                                 <label class="btn btn-default active">
+                                 <label class="btn btn-default active" id="fontDefault">
                                      <input type="radio" name="style" id="default" autocomplete="off" onchange="updateStyle()" checked> Default 
                                  </label>
-                                 <label class="btn btn-default fontStyleItalic">
+                                 <label class="btn btn-default fontStyleItalic" id="fontItalic">
                                      <input type="radio" name="style" id="italic" autocomplete="off" onchange="updateStyle()"> Italic 
                                  </label>
-                                 <label class="btn btn-default fontStyleBold">
+                                 <label class="btn btn-default fontStyleBold" id="fontBold">
                                      <input type="radio" name="style" id="bold" autocomplete="off" onchange="updateStyle()"> Bold 
                                  </label>   
                                </div> 
@@ -105,9 +107,9 @@
                         <div class="container-fluid">
                             <div class="row"> 
                                 <select class="form-control" id="fontFamily" onchange="updateFontFamily()">
-                                    <option value="a" selected="selected">Mustard</option>
-                                    <option value="b">Ketchup</option>
-                                    <option value="c">Relish</option>
+                                    <option value="Default" selected="selected">Times New Roman</option>
+                                    <option value="Roboto">Roboto</option>
+                                    <option value="Baloo Bhaina">Baloo Bhaina</option>
                                 </select>
                             </div>
                         </div>
@@ -117,15 +119,15 @@
                             <label class="col-xs-6" for="fontStyle">Font Preview</label>
                         </div>
                         <div class="well preview" id="preview">
-                            <div id="previewPanel">ABC123!@#</div>
+                            <div id="previewPanel">123ABC</div>
                         </div>
                     </div>
                 </div>
           </div>
           <br/>    
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary save" data-dismiss="modal" onclick="#" id="modalSave">Save</button>  
-            <button type="button" class="btn btn-default closes" data-dismiss="modal" onclick="#">Close</button>
+            <button type="button" class="btn btn-primary save" data-dismiss="modal" id="modalSave">Save</button>  
+            <button type="button" class="btn btn-default closes" id="modalClose" onclick="closeModal()">Reset</button>
           </div>    
 	    </div>
 	  </div>
