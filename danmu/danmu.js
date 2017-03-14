@@ -177,6 +177,7 @@ function closeModal(){
     updateSpeed();
     updateStyle();
     updateFontFamily();
+    changeColor = false;
 }
 
 
@@ -184,50 +185,74 @@ function closeModal(){
 function generateDanmu(){
     //get the input content
     var input = document.getElementById("input").value;
-    //create a new textnode
-    var text = document.createTextNode(input);
     if(input === "")
 	alert("You must say something");
     else{
-	//get the danmu element
-	var danmu = document.getElementById("dm_screen");
-	var page = document.getElementById("page");
-	//create the danmu object	
-	//create a span to wrap the textnode then apply style to it
-	var container = document.createElement("div");
-	container.appendChild(text);
-	container.style.fontSize = "30px";
-	container.style.color= randomColor();
-	//put danmu at the rightmost place with random height
-	var properHeight = danmu.offsetHeight - 40;
-	var textTop = randomNum(properHeight)  + "px";
-	var textLeft = danmu.offsetWidth + "px";
-	container.style.position = "absolute";
-	container.style.left = textLeft;
-	container.style.top = textTop;
-	//below line solved the wrapping of div element when its content goes out boundary
-	container.style.whiteSpace = "nowrap"; //ignore whitespace in content and make it an line
-	container.style.textOverflow = "ellipsis";//clip text goes out of boundary of div
-	container.style.overflow = "hidden";//hidden overflow part in the div
-	danmu.style.overflow = "hidden";//hidden overflow part in the danmu canvas
-	danmu.appendChild(container);
-	//get the style.left of the danmu 
-	var pos = parseInt(textLeft);
-	//set animation
-	var interval = setInterval(frame,5);
-	function frame(){
-	    if (pos < -1 * container.offsetWidth) {
-		//if go out of boundary danmu will disappear
-		container.innerHTML = "";
-		clearInterval(interval);
-	    } else {
-		pos--; 
-		container.style.left = pos + 'px';  
-	    }
-	}
+	createContainer(input);
     }
-    
     //clear the input area
     document.getElementById("input").value = "";
 }
 
+//create bullet container in the danmu canvas
+function createContainer(input){
+    var text = document.createTextNode(input);
+    //get the danmu element
+    var danmu = document.getElementById("dm_screen");
+    var page = document.getElementById("page");
+    //create a span to wrap the textnode then apply style to it
+    var container = document.createElement("div");
+    container.appendChild(text);
+    container.style.fontSize = myBullet.size + "px";
+    if(!changeColor)
+	container.style.color = randomColor();
+    else
+	container.style.color = myBullet.color;
+    container.style.opacity = myBullet.opacity;
+    if(myBullet.style === "bold"){
+	container.style.fontStyle = "normal";
+	container.style.fontWeight = "bold";
+    }
+    else if (myBullet.style === "italic"){
+	container.style.fontStyle = "italic"
+	container.style.fontWeight = "normal";
+    }
+    else {
+	container.style.fontStyle = "normal";
+	container.style.fontWeight = "normal";
+    }
+    if(myBullet.font === "Roboto"){
+	container.style.fontFamily = "Roboto,sans-serif";
+    }
+    else if(myBullet.font === "Baloo Bhaina")
+	container.style.fontFamily = "Baloo Bhaina, cursive";
+    else
+	container.style.fontFamily = "Times New Roman,Times,serif";
+    //put danmu at the rightmost place with random height
+    var properHeight = danmu.offsetHeight - 40;
+    var textTop = randomNum(properHeight)  + "px";
+    var textLeft = danmu.offsetWidth + "px";
+    container.style.position = "absolute";
+    container.style.left = textLeft;
+    container.style.top = textTop;
+    //below line solved the wrapping of div element when its content goes out boundary
+    container.style.whiteSpace = "nowrap"; //ignore whitespace in content and make it an line
+    container.style.textOverflow = "ellipsis";//clip text goes out of boundary of div
+    container.style.overflow = "hidden";//hidden overflow part in the div
+    danmu.style.overflow = "hidden";//hidden overflow part in the danmu canvas
+    danmu.appendChild(container);
+    //get the style.left of the danmu 
+    var pos = parseInt(textLeft);
+    //set animation
+    var interval = setInterval(frame, myBullet.speed);
+    function frame(){
+	if (pos < -1 * container.offsetWidth) {
+	//if go out of boundary danmu will disappear
+	container.innerHTML = "";
+	clearInterval(interval);
+	} else {
+	    pos--; 
+	    container.style.left = pos + 'px';  
+	}
+    }
+}
