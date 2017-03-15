@@ -9,14 +9,14 @@ function bullet(size,color,opacity,speed,style,font){
 }
 
 //random color generator for danmu color
-function randomNum(val){
-    return Math.floor(Math.random() * val + 1);
+function randomNum(lower, upper){
+    return Math.floor(Math.random() * upper + lower);
 }
 
 function randomColor(){
-    var r = randomNum(256);
-    var g = randomNum(256);
-    var b = randomNum(256);
+    var r = randomNum(1,256);
+    var g = randomNum(1,256);
+    var b = randomNum(1,256);
     var color = "rgb(" + r + "," + g + "," + b +")";
     return color;
 }
@@ -231,7 +231,7 @@ function createContainer(input){
     //put danmu at the rightmost place with random height
     var fontPixel = Math.floor(myBullet.size * fontToPixel);
     var properHeight = danmu.offsetHeight - fontPixel;
-    var textTop = randomNum(properHeight) + "px";
+    var textTop = randomNum(0,properHeight) + "px";
     var textLeft = danmu.offsetWidth + "px";
     container.style.position = "absolute";
     container.style.left = textLeft;
