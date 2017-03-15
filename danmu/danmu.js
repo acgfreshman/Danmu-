@@ -114,7 +114,7 @@ function updatePreview(bullet){
     generateCustom(content,bullet);
 }
 
-
+const fontToPixel = 1.425; //a constant converts fontSize to actual pixels in html page
 //create default bullet object
 var size = getSize();
 var color = getColor();
@@ -229,8 +229,9 @@ function createContainer(input){
     else
 	container.style.fontFamily = "Times New Roman,Times,serif";
     //put danmu at the rightmost place with random height
-    var properHeight = danmu.offsetHeight - 40;
-    var textTop = randomNum(properHeight)  + "px";
+    var fontPixel = Math.floor(myBullet.size * fontToPixel);
+    var properHeight = danmu.offsetHeight - fontPixel;
+    var textTop = randomNum(properHeight) + "px";
     var textLeft = danmu.offsetWidth + "px";
     container.style.position = "absolute";
     container.style.left = textLeft;
